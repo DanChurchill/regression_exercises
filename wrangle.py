@@ -86,14 +86,13 @@ def remove_outliers(df, k, col_list):
         
     return df
 
-def min_max_scaler(train, validate, test):
+def scaler(scaler, train, validate, test):
        '''
-       function accepts train, validate, and test dataframes and 
-       performs min_max scaling on the sq_ft and tax_amount columns
+       function accepts a scaler type, and train/validate/test dataframes then 
+       performs scaling on the sq_ft and tax_amount columns
        returns the train, validate, and test dataframes with the additional 
        scaled columns
        '''
-       scaler = MinMaxScaler()
        
 
        train[['scaled_sqft', 'scaled_taxamount']] = scaler.fit_transform(train[['calculatedfinishedsquarefeet',
